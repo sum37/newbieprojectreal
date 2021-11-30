@@ -1,17 +1,20 @@
 import React from 'react';
-import {BrowserRouter as Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css';
-// import Header from './component/header';
-// import Login from './component/login';
-import ProfilePage from './pages/ProfilePage';
+import SignPage from './pages/Sign';
+import Header from './component/header';
+
 
 
 function App() {
   return (
     <div>
+    <Header />
+    <BrowserRouter>
       <Routes>
-        <Route path='/profile' component={<ProfilePage />} />
+        <Route path='/sign' element={<SignPage />} />
       </Routes>
+    </BrowserRouter>
     </div>
   );
 }
