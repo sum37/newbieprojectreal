@@ -1,18 +1,18 @@
+import React from 'react';
+import {BrowserRouter as Routes, Route} from 'react-router-dom';
 import './App.css';
-import Header from './component/header';
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import Login from './component/login';
+// import Header from './component/header';
+// import Login from './component/login';
+import ProfilePage from './pages/ProfilePage';
 
 
 function App() {
   return (
-    <BrowserRouter>
     <div>
-      <Header />
-      <Login />
+      <Routes>
+        <Route path='/profile' component={<ProfilePage />} />
+      </Routes>
     </div>
-    </BrowserRouter>
-    
   );
 }
 
