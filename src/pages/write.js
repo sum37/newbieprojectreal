@@ -1,6 +1,11 @@
 import React from "react";
 
 export default function WritePage(){
+    const diarysectionstyle={
+        width: '700px',
+        height: '350px',
+        maxlength: '20'
+    };
     return (
         <div>
             <header className="intro">
@@ -73,7 +78,8 @@ export default function WritePage(){
                 </div>
             </body>
             <body className="diary section">
-                <input type='text' name='diary section'/>
+                <textarea cols="20" rows="10" name='diary section' style={diarysectionstyle}/>
+                <br />
                 <input type="submit" value="저장"/>
             </body>
             <body className="list of diarys">
