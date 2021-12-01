@@ -4,6 +4,7 @@ import './App.css';
 import SignPage from './pages/Sign';
 // import Header from './component/header';
 import MainPage from './pages/main';
+import JoinPage from './pages/join';
 
 
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/sign' element={<SignPage />} />
         <Route path='/main' element={<MainPage />} />
+        <Route path='/join' element={<JoinPage />} />
       </Routes>
     </BrowserRouter>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../component/header';
-// import Login from '../component/gotosign';
+import GoToSignPage from '../component/gotosign';
 
 export default function MainPage({location, history}){
     console.log(history);
@@ -9,6 +9,7 @@ export default function MainPage({location, history}){
         <>
             <Header />
             <h1>메인 페이지</h1>
+            <GoToSignPage history={history} />
         </>
     );
 }
