@@ -3,65 +3,70 @@ import React from "react";
 export default function WritePage(){
     return (
         <div>
-            <header className="intro">
-                <h1>오늘의 하루는 어땠나요?</h1>
-                <h2>느낀 감정의 강도를 1에서 5까지 숫자를 통해 표현해보세요.</h2>
-            </header>
+            <head className="intro">
+                <h1>오늘 하루는 어땠나요?</h1>
+                <h2>각각의 감정을 느낀 정도를 숫자를 통해 표현해보세요.</h2>
+            </head>
             <body className="choose emotion">
                 <div className="happy">
                     <label> 희 </label>
-                    <input type="radio" id="happy" name="emotion" value="happy" checked="checked"></input>
+                    <input type="radio" id="happy" name="emotion" value="happy" checked="checked" />
                     <label> 1 </label>
-                    <input type="radio" id="happy" name="emotion" value="happy" checked="checked"></input>
+                    <input type="radio" id="happy" name="emotion" value="happy" checked="checked" />
                     <label> 2 </label>
-                    <input type="radio" id="happy" name="emotion" value="happy" checked="checked"></input>
+                    <input type="radio" id="happy" name="emotion" value="happy" checked="checked" />
                     <label> 3 </label>
-                    <input type="radio" id="happy" name="emotion" value="happy" checked="checked"></input>
+                    <input type="radio" id="happy" name="emotion" value="happy" checked="checked" />
                     <label> 4 </label>
-                    <input type="radio" id="happy" name="emotion" value="happy" checked="checked"></input>
+                    <input type="radio" id="happy" name="emotion" value="happy" checked="checked" />
                     <label> 5 </label>
                 </div>
                 <div className="angry">
                     <label> 노 </label>
-                    <input type="radio" id="angry" name="emotion" value="angry" checked="checked"></input>
+                    <input type="radio" id="angry" name="emotion" value="angry" checked="checked" />
                     <label> 1 </label>
-                    <input type="radio" id="angry" name="emotion" value="angry" checked="checked"></input>
+                    <input type="radio" id="angry" name="emotion" value="angry" checked="checked" />
                     <label> 2 </label>
-                    <input type="radio" id="angry" name="emotion" value="angry" checked="checked"></input>
+                    <input type="radio" id="angry" name="emotion" value="angry" checked="checked" />
                     <label> 3 </label>
-                    <input type="radio" id="angry" name="emotion" value="angry" checked="checked"></input>
+                    <input type="radio" id="angry" name="emotion" value="angry" checked="checked" />
                     <label> 4 </label>
-                    <input type="radio" id="angry" name="emotion" value="angry" checked="checked"></input>
+                    <input type="radio" id="angry" name="emotion" value="angry" checked="checked" />
                     <label> 5 </label>
                 </div>
                 <div className="sad">
                     <label> 애 </label>
-                    <input type="radio" id="sad" name="emotion" value="sad" checked="checked"></input>
+                    <input type="radio" id="sad" name="emotion" value="sad" checked="checked" />
                     <label> 1 </label>
-                    <input type="radio" id="sad" name="emotion" value="sad" checked="checked"></input>
+                    <input type="radio" id="sad" name="emotion" value="sad" checked="checked" />
                     <label> 2 </label>
-                    <input type="radio" id="sad" name="emotion" value="sad" checked="checked"></input>
+                    <input type="radio" id="sad" name="emotion" value="sad" checked="checked" />
                     <label> 3 </label>
-                    <input type="radio" id="sad" name="emotion" value="sad" checked="checked"></input>
+                    <input type="radio" id="sad" name="emotion" value="sad" checked="checked" />
                     <label> 4 </label>
-                    <input type="radio" id="sad" name="emotion" value="sad" checked="checked"></input>
+                    <input type="radio" id="sad" name="emotion" value="sad" checked="checked" />
                     <label> 5 </label>
                 </div>
                 <div className="joy">
                     <label> 락 </label>
-                    <input type="radio" id="joy" name="emotion" value="joy" checked="checked"></input>
+                    <input type="radio" id="joy" name="emotion" value="joy" checked="checked" />
                     <label> 1 </label>
-                    <input type="radio" id="joy" name="emotion" value="joy" checked="checked"></input>
+                    <input type="radio" id="joy" name="emotion" value="joy" checked="checked" />
                     <label> 2 </label>
-                    <input type="radio" id="joy" name="emotion" value="joy" checked="checked"></input>
+                    <input type="radio" id="joy" name="emotion" value="joy" checked="checked" />
                     <label> 3 </label>
-                    <input type="radio" id="joy" name="emotion" value="joy" checked="checked"></input>
+                    <input type="radio" id="joy" name="emotion" value="joy" checked="checked" />
                     <label> 4 </label>
-                    <input type="radio" id="joy" name="emotion" value="joy" checked="checked"></input>
+                    <input type="radio" id="joy" name="emotion" value="joy" checked="checked" />
                     <label> 5 </label>
                 </div>
             </body>
+            <body className="diary section">
+                <input type='text' name='diary section'/>
+                <input type="submit"/>
+            </body>
+            <body className="list of diarys">
+            </body>
         </div>
-    
     );
 }

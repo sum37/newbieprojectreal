@@ -2,7 +2,6 @@ import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css';
 import SignPage from './pages/Sign';
-// import Header from './component/header';
 import MainPage from './pages/main';
 import JoinPage from './pages/join';
 import WritePage from './pages/write';

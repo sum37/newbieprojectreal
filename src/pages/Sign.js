@@ -1,30 +1,24 @@
 import React from 'react';
 import JoinButton from '../component/joinbutton';
-import LoginButton from '../component/loginbutton';
-import { useState } from 'react';
+import Header from '../component/header';
+
 
 
 function SignPage(){
-    const [inputId, setInputId] = useState('')
-    const [inputPW, setInputPW] = useState('')
-    const hadleInputId =(e)=>{
-        setInputId(e.target.value)
-    }
-    const hadleInputPW =(e)=>{
-        setInputPW(e.target.value)
-    }
     return(
         <>
-        <h1>로그인 페이지</h1>
+        <Header />
         <div>
-            <label htmlFor='input_id'> I  D : </label>
-            <input type='text' name='input_id' value={inputId} onChange={hadleInputId} />
+            <label> I  D : </label>
+            <input type='text' name='id'/>
         </div>
         <div>
-            <label htmlFor='input_pw'>PW: </label>
-            <input type='text' name='input_pw' value={inputPW} onChange={hadleInputPW} />
+            <label>PW: </label>
+            <input type='text' name='pw'/>
         </div>
-        <LoginButton />
+        <div>
+            <input type="submit"/>
+        </div>
         <JoinButton />
         </>
     );
