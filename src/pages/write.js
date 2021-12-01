@@ -83,6 +83,7 @@ export default function WritePage(){
                 <input type="submit" value="저장"/>
             </body>
             <body className="list of diarys">
+                <h1>안녕</h1>
             </body>
         </div>
     );
