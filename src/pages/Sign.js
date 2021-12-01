@@ -16,9 +16,9 @@ function SignPage(){
             <label>PW: </label>
             <input type='text' name='pw'/>
         </div>
-        <div>
-            <input type="submit"/>
-        </div>
+        <form>
+            <input type="submit" value="로그인"/>
+        </form>
         <JoinButton />
         </>
     );
