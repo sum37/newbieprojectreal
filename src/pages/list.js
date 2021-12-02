@@ -3,9 +3,9 @@ import React from 'react';
 
 function ListPage(){
     return(
-        <>
-        <h1>이전 욥dyq 일기 페이지</h1>
-        </>
+        <div>
+            <h1>지난 기록을 살펴보세요.</h1>
+        </div>
     );
 }
 

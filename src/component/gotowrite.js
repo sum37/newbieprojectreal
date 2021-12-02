@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-function JoinButton(){
+function GoToWritePage(){
     return (
         <div>
-            <Link to="/join">
-                <button>회원가입</button>   
+            <Link to="/write">
+                <button>일기 쓰러 가기</button>
             </Link>
+
         </div>
     
     );
 }
 
-export default JoinButton;
+export default GoToWritePage;

@@ -1,4 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import ListButton from "../component/gotolist";
+
+const happys = ["0", "1", "2", "3", "4", "5"];
+const angrys = ["0", "1", "2", "3", "4", "5"];
+const sads = ["0", "1", "2", "3", "4", "5"];
+const joys = ["0", "1", "2", "3", "4", "5"];
+
 
 export default function WritePage(){
     const diarysectionstyle={
@@ -6,6 +13,12 @@ export default function WritePage(){
         height: '350px',
         maxlength: '20'
     };
+
+    const [happy, setHappy] = useState("0");
+    const [angry, setAngry] = useState("0");
+    const [sad, setSad] = useState("0");
+    const [joy, setJoy] = useState("0");
+    
     return (
         <div>
             <header className="intro">
@@ -15,76 +28,74 @@ export default function WritePage(){
             <body className="choose emotion">
                 <div className="happy">
                     <label> 희 </label>
-                    <input type="radio" name="happy" value="0" />
-                    <label> 0 </label>
-                    <input type="radio" name="happy" value="1" />
-                    <label> 1 </label>
-                    <input type="radio" name="happy" value="2" />
-                    <label> 2 </label>
-                    <input type="radio" name="happy" value="3" />
-                    <label> 3 </label>
-                    <input type="radio" name="happy" value="4" />
-                    <label> 4 </label>
-                    <input type="radio" name="happy" value="5" />
-                    <label> 5 </label>
+                    {happys.map(f => (
+                    <>
+                        <input
+                            type="radio"
+                            name="happy"
+                            value={f}
+                            checked={happy===f}
+                            onChange={e=>setHappy(e.currentTarget.value)}
+                        />{" "}
+                        {f}
+                    </>    
+                    ))}
                 </div>
                 <br />
                 <div className="angry">
                     <label> 노 </label>
-                    <input type="radio" name="angry" value="0" />
-                    <label> 0 </label>
-                    <input type="radio" name="angry" value="1" />
-                    <label> 1 </label>
-                    <input type="radio" name="angry" value="2" />
-                    <label> 2 </label>
-                    <input type="radio" name="angry" value="3" />
-                    <label> 3 </label>
-                    <input type="radio" name="angry" value="4" />
-                    <label> 4 </label>
-                    <input type="radio" name="angry" value="5" />
-                    <label> 5 </label>
+                    {angrys.map(f => (
+                    <>
+                        <input
+                            type="radio"
+                            name="angry"
+                            value={f}
+                            checked={angry===f}
+                            onChange={e=>setAngry(e.currentTarget.value)}
+                        />{" "}
+                        {f}
+                    </>    
+                    ))}
                 </div>
                 <br />
                 <div className="sad">
                     <label> 애 </label>
-                    <input type="radio" name="sad" value="0" />
-                    <label> 0 </label>
-                    <input type="radio" name="sad" value="1" />
-                    <label> 1 </label>
-                    <input type="radio" name="sad" value="2" />
-                    <label> 2 </label>
-                    <input type="radio" name="sad" value="3" />
-                    <label> 3 </label>
-                    <input type="radio" name="sad" value="4" />
-                    <label> 4 </label>
-                    <input type="radio" name="sad" value="5" />
-                    <label> 5 </label>
+                    {sads.map(f => (
+                    <>
+                        <input
+                            type="radio"
+                            name="sad"
+                            value={f}
+                            checked={sad===f}
+                            onChange={e=>setSad(e.currentTarget.value)}
+                        />{" "}
+                        {f}
+                    </>    
+                    ))}
                 </div>
                 <br />
                 <div className="joy">
                     <label> 락 </label>
-                    <input type="radio" name="joy" value="0" />
-                    <label> 0 </label>
-                    <input type="radio" name="joy" value="1" />
-                    <label> 1 </label>
-                    <input type="radio" name="joy" value="2" />
-                    <label> 2 </label>
-                    <input type="radio" name="joy" value="3" />
-                    <label> 3 </label>
-                    <input type="radio" name="joy" value="4" />
-                    <label> 4 </label>
-                    <input type="radio" name="joy" value="5" />
-                    <label> 5 </label>
+                    {joys.map(f => (
+                    <>
+                        <input
+                            type="radio"
+                            name="joy"
+                            value={f}
+                            checked={joy===f}
+                            onChange={e=>setJoy(e.currentTarget.value)}
+                        />{" "}
+                        {f}
+                    </>    
+                    ))}
                 </div>
-            </body>
-            <body className="diary section">
-                <textarea cols="20" rows="10" name='diary section' style={diarysectionstyle}/>
+                <br />
+                <textarea
+                    style={diarysectionstyle} required/>
                 <br />
                 <input type="submit" value="저장"/>
             </body>
-            <body className="list of diarys">
-                <h1>안녕</h1>
-            </body>
+            <ListButton />
         </div>
     );
 }

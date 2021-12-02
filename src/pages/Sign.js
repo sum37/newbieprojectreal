@@ -8,16 +8,16 @@ function SignPage(){
     return(
         <>
         <Header />
+        <form action='/write'>
         <div>
             <label> I  D : </label>
             <input type='text' name='id'/>
         </div>
         <div>
             <label>PW: </label>
-            <input type='text' name='pw'/>
+            <input type='password' name='pw'/>
         </div>
-        <form>
-            <input type="submit" value="로그인"/>
+        <input type="submit" value="로그인"/>
         </form>
         <JoinButton />
         </>
