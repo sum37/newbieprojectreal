@@ -13,7 +13,7 @@ function JoinPage(){
             <label> 비밀번호 : </label>
             <input type='text' name='password'/>
             <br />
-            <input type="submit" value="회원가입"/>
+            <input type="submit" value="회원가입" />
         </div>
         </>
     );

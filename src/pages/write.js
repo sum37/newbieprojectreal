@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ListButton from "../component/gotolist";
+import axios from 'axios';
+import ListItem from '../component/ListItem';
+
 
 const happys = ["0", "1", "2", "3", "4", "5"];
 const angrys = ["0", "1", "2", "3", "4", "5"];
@@ -18,7 +21,20 @@ export default function WritePage(){
     const [angry, setAngry] = useState("0");
     const [sad, setSad] = useState("0");
     const [joy, setJoy] = useState("0");
+    const [input, setInput] = useState([]);
+    const [addInput, setSaveInput] = useState("");
     
+    const onSaveclick = () => {
+        axios.post('/api/list', {
+            name: saveInput
+        })
+        .then(() => axios.get('/api/list'))
+        .then(response => {
+            setInput(response.data);
+            setSaveInput("");
+        });
+    };
+
     return (
         <div>
             <header className="intro">
@@ -91,10 +107,14 @@ export default function WritePage(){
                 </div>
                 <br />
                 <textarea
-                    style={diarysectionstyle} required/>
+                    value={addInput}
+                    style={diarysectionstyle}
+                    onChange={v=>setAddInput(v.target.value)}
+                    required/>
                 <br />
-                <input type="submit" value="저장"/>
+                <button onClick={()=>onSaveClick()}>저장</button>
             </body>
+            {listEls}
             <ListButton />
         </div>
     );
