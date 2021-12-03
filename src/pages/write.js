@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import ListButton from "../component/gotolist";
+import React, { useState } from "react";
 import axios from 'axios';
-import ListItem from '../component/ListItem';
+import ListItem from "../component/ListItem";
 
 
 const happys = ["0", "1", "2", "3", "4", "5"];
@@ -22,9 +21,9 @@ export default function WritePage(){
     const [sad, setSad] = useState("0");
     const [joy, setJoy] = useState("0");
     const [input, setInput] = useState([]);
-    const [addInput, setSaveInput] = useState("");
+    const [saveInput, setSaveInput] = useState("");
     
-    const onSaveclick = () => {
+    const onSaveClick = () => {
         axios.post('/api/list', {
             name: saveInput
         })
@@ -34,6 +33,13 @@ export default function WritePage(){
             setSaveInput("");
         });
     };
+
+    const ListUp = input.map(v=>(
+        <ListItem
+            key={v.id}
+            name={v.name}
+        />
+    ));
 
     return (
         <div>
@@ -107,15 +113,14 @@ export default function WritePage(){
                 </div>
                 <br />
                 <textarea
-                    value={addInput}
+                    value={saveInput}
                     style={diarysectionstyle}
-                    onChange={v=>setAddInput(v.target.value)}
+                    onChange={v=>setSaveInput(v.target.value)}
                     required/>
                 <br />
                 <button onClick={()=>onSaveClick()}>저장</button>
             </body>
-            {listEls}
-            <ListButton />
+            <ListUp />
         </div>
     );
 }
