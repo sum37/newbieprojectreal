@@ -1,40 +1,29 @@
-import React, {Component} from 'react';
-import Entries from './pages/write';
-import Form from './component/Form';
+import React from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import './App.css';
+import SignPage from './pages/Sign';
+import MainPage from './pages/main';
+import JoinPage from './pages/join';
+import WritePage from './pages/write';
+import ListPage from './pages/list';
 
-class App extends Component {
-  state = {
-    entries: [
 
-    ]
-  }
 
-  removeEntry = index => {
-    const { entries } = this.state
-
-    this.setState({
-      entries: entries.filter ((entry, i) => {
-        return i !== index
-      })
-    })
-  }
-
-  handleSubmit = entry => {
-    this.setState({ entries: [...this.state.entries, entry]})
-  }
-
-  render () {
-    const { entries } = this.state;
-    
-    return (
-      <div className="App">
-        <h1>My Journal App</h1>
-        <Entries entryData={entries} removeEntry={this.removeEntry}/>
-        <Form handleSubmit={this.handleSubmit}/>
-      </div>
-    );
-  }
-
+function App() {
+  return (
+    <div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/sign' element={<SignPage />} />
+        <Route path='/main' element={<MainPage />} />
+        <Route path='/join' element={<JoinPage />} />
+        <Route path='/write' element={<WritePage />} />
+        <Route path='/list' element={<ListPage />} />
+      </Routes>
+    </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
+
