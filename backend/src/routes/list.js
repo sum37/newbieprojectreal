@@ -15,16 +15,4 @@ router.post("/", (req, res) => {
   });
 });
 
-router.delete("/:id", (req, res) => {
-  db.remove(req.params.id, () => {
-    res.status(200).send();
-  });
-});
-
-router.put("/:id/finish", (req, res) => {
-  db.setDone(req.params.id, () => {
-    res.status(200).send();
-  });
-});
-
 module.exports = router;
