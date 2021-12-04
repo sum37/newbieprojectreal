@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import axios from 'axios';
-import ListItem from "../component/ListItem";
+//import axios from 'axios';
+//import ListItem from "../component/ListItem";
 
 
 const happys = ["0", "1", "2", "3", "4", "5"];
@@ -20,26 +20,27 @@ export default function WritePage(){
     const [angry, setAngry] = useState("0");
     const [sad, setSad] = useState("0");
     const [joy, setJoy] = useState("0");
-    const [input, setInput] = useState([]);
-    const [saveInput, setSaveInput] = useState("");
+    //const [input, setInput] = useState([]);
+    //const [saveInput, setSaveInput] = useState("");
     
     const onSaveClick = () => {
-        axios.post('/api/list', {
-            name: saveInput
-        })
-        .then(() => axios.get('/api/list'))
-        .then(response => {
-            setInput(response.data);
-            setSaveInput("");
-        });
+        // axios.post('/api/write', {
+        //     name: saveInput
+        // })
+        // .then(() => axios.get('/api/write'))
+        // .then(response => {
+        //     setInput(response.data);
+        //     setSaveInput("");
+        // });
+        alert('저장하시겠습니까?');
     };
 
-    const ListUp = input.map(v=>(
-        <ListItem
-            key={v.id}
-            name={v.name}
-        />
-    ));
+    // const ListUp = input.map(v=>(
+    //     <ListItem
+    //         key={v.id}
+    //         name={v.name}
+    //     />
+    // ));
 
     return (
         <div>
@@ -113,14 +114,14 @@ export default function WritePage(){
                 </div>
                 <br />
                 <textarea
-                    value={saveInput}
+                    //value={saveInput}
                     style={diarysectionstyle}
-                    onChange={v=>setSaveInput(v.target.value)}
+                    //onChange={v=>setSaveInput(v.target.value)}
                     required/>
                 <br />
                 <button onClick={()=>onSaveClick()}>저장</button>
             </body>
-            <ListUp />
+            {/* <ListUp /> */}
         </div>
     );
 }
