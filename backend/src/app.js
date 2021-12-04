@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-const InputRouter = require("./routes/write");
+const InputRouter = require("./routes/diary");
 
 const app = express();
 const port = 8080;

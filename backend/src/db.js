@@ -27,7 +27,7 @@ function getAll(callback){
 }
 
 function remove(id, callback){
-  TodoModel.deleteOne({_id:id}, (error)=>{
+  InputModel.deleteOne({_id:id}, (error)=>{
     callback();
   });
 }
