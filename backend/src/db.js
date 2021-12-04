@@ -25,7 +25,15 @@ function getAll(callback){
     }
   })
 }
+
+function remove(id, callback){
+  TodoModel.deleteOne({_id:id}, (error)=>{
+    callback();
+  });
+}
+
 module.exports = {
   getAll,
-  add
+  add,
+  remove
 };
