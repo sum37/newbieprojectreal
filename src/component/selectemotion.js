@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import './selecemotion.css';
 const happys = ["0", "1", "2", "3", "4", "5"];
 const angrys = ["0", "1", "2", "3", "4", "5"];
 const sads = ["0", "1", "2", "3", "4", "5"];
@@ -12,7 +12,7 @@ export default function SelectEmotion(){
     const [joy, setJoy] = useState("0");
 
     return(
-        <body className="choose emotion">
+        <body className="chooseemotion">
                 <div className="happy">
                     <label> 희 </label>
                     {happys.map(f => (

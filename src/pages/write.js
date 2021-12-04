@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import ListItem from "../component/ListItem";
 import SelectEmotion from "../component/selectemotion";
-
-
-
+import './write.css';
 
 export default function WritePage(){
     const diarysectionstyle={
@@ -27,10 +25,10 @@ export default function WritePage(){
       }, []);
     
     const onSaveClick = () => {
-        axios.post('/write', {
+        axios.post('api/write', {
             input: saveInput
         })
-        .then(() => axios.get('/write'))
+        .then(() => axios.get('api/write'))
         .then(response => {
             setInput(response.data);
             setSaveInput("");
@@ -53,6 +51,7 @@ export default function WritePage(){
             <SelectEmotion />
                 <br />
                 <textarea
+                    className="textarea"
                     value={saveInput}
                     style={diarysectionstyle}
                     onChange={v=>setSaveInput(v.target.value)}
