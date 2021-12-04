@@ -52,13 +52,8 @@ export default function WritePage(){
             setSaveTitle("");
             setSaveBody("");
          });
+
         alert('저장하시겠습니까?');
-        console.log(happy)
-        console.log(angry)
-        console.log(sad)
-        console.log(joy)
-        console.log(saveTitle)
-        console.log(saveBody)
     };
 
     const onDeleteClick = (item) => {
