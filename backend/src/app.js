@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-const InputRouter = require("./routes/diary");
+const InputRouter = require("./routes/write");
 
 const app = express();
 const port = 8080;
@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.use("/write", writeRouter);
+app.use("/write", InputRouter);
 
 app.get("/", (req, res) => {
   res.status(418).send("Hi");

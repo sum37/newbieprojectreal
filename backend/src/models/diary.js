@@ -11,4 +11,3 @@ const schema = new mongoose.Schema({
   const InputModel = mongoose.model("diary", schema);
   
   module.exports = InputModel
-  
