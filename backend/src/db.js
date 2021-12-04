@@ -1,4 +1,4 @@
-const TodoModel = require("./models/todo")
+const TodoModel = require("./models/list")
 function add(name, callback) {
   const newItem = new ListModel({
     name
