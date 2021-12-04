@@ -1,14 +1,21 @@
-const TodoModel = require("./models/list")
-function add(name, callback) {
-  const newItem = new ListModel({
-    name
+const InputModel = require("./models/diary")
+
+function add(happyvalue, angryvalue, sadvalue, joyvalue, titlevalue, bodyvalue, callback) {
+  const newInput = new InputModel({
+    happy: happyvalue,
+    angry: angryvalue,
+    sad: sadvalue,
+    joy: joyvalue,
+    title: titlevalue,
+    body: bodyvalue
   });
-  newItem.save((error, result) => {
+  newInput.save((error, result) => {
     callback(result);
   })
 }
+
 function getAll(callback){
-  ListModel.find({}, (error, result)=>{
+  InputModel.find({}, (error, result)=>{
     if(error){
       console.log(error);
       callback([]);
@@ -20,5 +27,5 @@ function getAll(callback){
 }
 module.exports = {
   getAll,
-  add,
+  add
 };

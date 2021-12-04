@@ -1,13 +1,13 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-const listRouter = require("./routes/list");
+const InputRouter = require("./routes/diary");
 
 const app = express();
 const port = 8080;
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost:27017/list', {
+mongoose.connect('mongodb://localhost:27017/write', {
   useNewUrlParser : true,
   useUnifiedTopology : true
 })
@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.use("/list", listRouter);
+app.use("/write", writeRouter);
 
 app.get("/", (req, res) => {
   res.status(418).send("Hi");
