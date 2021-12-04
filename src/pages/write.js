@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import InputItem from "../component/InputItem";
-import './write.css';
+
 
 const happys = ["0", "1", "2", "3", "4", "5"];
 const angrys = ["0", "1", "2", "3", "4", "5"];
@@ -16,7 +16,8 @@ export default function WritePage(){
     };
 
     const [input, setInput] = useState([]);
-    const [saveInput, setSaveInput] = useState("");
+    const [saveTitle, setSaveTitle] = useState("");
+    const [saveBody, setSaveBody] = useState("");
 
     const [happy, setHappy] = useState("0");
     const [angry, setAngry] = useState("0");
@@ -34,17 +35,41 @@ export default function WritePage(){
     
     const onSaveClick = () => {
         axios.post('/api/write', {
-            input: saveInput
+            happy: happy,
+            angry: angry,
+            sad: sad,
+            joy: joy,
+            title: saveTitle,
+            body : saveBody
         })
         .then(() => axios.get('/api/write'))
         .then(response => {
             setInput(response.data);
-            setSaveInput("");
+            setHappy("0");
+            setAngry("0");
+            setSad("0");
+            setJoy("0");
+            setSaveTitle("");
+            setSaveBody("");
          });
         alert('저장하시겠습니까?');
+        console.log(happy)
+        console.log(angry)
+        console.log(sad)
+        console.log(joy)
+        console.log(saveTitle)
+        console.log(saveBody)
     };
 
-    const ListUp = input.map( (v,i)=>(
+    const onDeleteClick = (item) => {
+        axios.delete(`api/write/${item._id}`)
+        .then(()=>axios.get(`api/write`))
+        .then(response => {
+          setInput(response.data);
+        })
+      };
+
+    const ListUp = input.map(v=>(
         <InputItem
             key={v._id}
             happy={v.happyvalue}
@@ -53,6 +78,7 @@ export default function WritePage(){
             joy={v.joyvalue}
             title={v.titlevalue}
             body={v.bodyvalue}
+            onDeleteClick={()=>onDeleteClick(v)}
         />
     ));
 
@@ -129,10 +155,16 @@ export default function WritePage(){
         </div>
                 <br />
                 <textarea
-                    className="textarea"
-                    value={saveInput}
+                    className="Title"
+                    value={saveTitle}
+                    onChange={v=>setSaveTitle(v.target.value)}
+                    required/>
+                <br />
+                <textarea
+                    className="Body"
+                    value={saveBody}
                     style={diarysectionstyle}
-                    onChange={v=>setSaveInput(v.target.value)}
+                    onChange={v=>setSaveBody(v.target.value)}
                     required/>
                 <br />
                 <button onClick={()=>onSaveClick()}>저장</button>
