@@ -1,13 +1,13 @@
 const InputModel = require("./models/diary")
 
-function add(happyvalue, angryvalue, sadvalue, joyvalue, titlevalue, bodyvalue, callback) {
+function add(happy, angry, sad, joy, title, body, callback) {
   const newInput = new InputModel({
-    happy: happyvalue,
-    angry: angryvalue,
-    sad: sadvalue,
-    joy: joyvalue,
-    title: titlevalue,
-    body: bodyvalue
+    happy: happy,
+    angry: angry,
+    sad: sad,
+    joy: joy,
+    title: title,
+    body: body
   });
   newInput.save((error, result) => {
     callback(result);

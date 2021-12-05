@@ -9,8 +9,8 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const {happyvalue, angryvalue, sadvalue, joyvalue, titlevalue, bodyvalue} = req.body;
-  db.add(happyvalue, angryvalue, sadvalue, joyvalue, titlevalue, bodyvalue, (newInput) => {
+  const {happy, angry, sad, joy, title, body} = req.body;
+  db.add(happy, angry, sad, joy, title, body, (newInput) => {
     res.json(newInput);
   });
 });
