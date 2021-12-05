@@ -1,26 +1,27 @@
 import React from 'react';
-import JoinButton from '../component/joinbutton';
-import Header from '../component/header';
-
-
+import './sign.css';
+import { Link } from 'react-router-dom';
 
 function SignPage(){
     return(
-        <>
-        <Header />
-        <form action='/write'>
-        <div>
-            <label> I  D : </label>
-            <input type='text' name='id'/>
+        <div className="Entire">
+            <div className="InputBox">
+                <label className="ID"> I  D   : </label>
+                <input className="IDbox"type='text' name='id'/>
+            </div>
+            <div className="InputBox">
+                <label className="PW">PW  : </label>
+                <input className="PWbox" type='password' name='pw'/>
+            </div>
+
+            <input className="login-button2" type="submit" value="로그인"/>
+            
+            <div>
+                <Link to="/join">
+                    <button className="joinbutton">회원가입</button>   
+                </Link>
+            </div>
         </div>
-        <div>
-            <label>PW: </label>
-            <input type='password' name='pw'/>
-        </div>
-        <input type="submit" value="로그인"/>
-        </form>
-        <JoinButton />
-        </>
     );
 }
 

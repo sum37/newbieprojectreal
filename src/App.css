@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #61dafb;
+  background-color: #fcfaf1;
 }
 
 .App-logo {
@@ -37,3 +37,25 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: 'twaysky';
+  src: url('./tway_sky.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'chinese';
+  src: url('./HanaMinA.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JSongMyung-Regular-KO';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+

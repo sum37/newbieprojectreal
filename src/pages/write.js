@@ -51,6 +51,11 @@ export default function WritePage(){
             setJoy("0");
             setSaveTitle("");
             setSaveBody("");
+            console.log(response.data)
+         })
+                  .catch((err)=>{
+             console.log(err);
+             alert("오류");
          });
 
         alert('저장하시겠습니까?');
@@ -62,6 +67,7 @@ export default function WritePage(){
         .then(response => {
           setInput(response.data);
         })
+        alert('삭제하시겠습니까?');
       };
 
     const ListUp = input.map(v=>(
