@@ -53,11 +53,6 @@ export default function WritePage(){
             setSaveBody("");
             console.log(response.data)
          })
-                  .catch((err)=>{
-             console.log(err);
-             alert("오류");
-         });
-
         alert('저장하시겠습니까?');
     };
 
@@ -66,25 +61,29 @@ export default function WritePage(){
         .then(()=>axios.get(`api/write`))
         .then(response => {
           setInput(response.data);
+          console.log(response.data)
         })
         alert('삭제하시겠습니까?');
+        
       };
 
     const ListUp = input.map(v=>(
         <InputItem
             key={v._id}
-            happy={v.happyvalue}
-            angry={v.angryvalue}
-            sad={v.sadvalue}
-            joy={v.joyvalue}
-            title={v.titlevalue}
-            body={v.bodyvalue}
+            happy={v.happy}
+            angry={v.angry}
+            sad={v.sad}
+            joy={v.joy}
+            title={v.title}
+            body={v.body}
             onDeleteClick={()=>onDeleteClick(v)}
         />
     ));
 
     return (
-        <div>
+        <div className="Entire">
+            <p className="notmain-sub-header">喜 怒 哀 樂</p>
+            <h1 className="notmain-header">희 노 애 락</h1>
             <div className="intro">
                 <h1>오늘 하루는 어땠나요?</h1>
                 <h2>각각의 감정을 느낀 정도를 숫자를 통해 표현해보세요.</h2>
