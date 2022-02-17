@@ -9,7 +9,7 @@ function SignPage(){
             <h1 className="notmain-header">희 노 애 락</h1>
             <div className="InputIDBox">
                 <label className="ID"> I  D   : </label>
-                <input className="IDbox"type='text' name='id'/>
+                <input className="IDbox" type='text' name='id'/>
             </div>
             <div className="InputPWBox">
                 <label className="PW">PW  : </label>

@@ -21,6 +21,7 @@ function App() {
         <Route path='/list' element={<ListPage />} />
       </Routes>
     </BrowserRouter>
+    <div className="background">darkmode</div>
     </div>
   );
 }

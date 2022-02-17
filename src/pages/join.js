@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './join.css';
 
 function JoinPage(){
     return(
@@ -7,16 +7,16 @@ function JoinPage(){
             <p className="notmain-sub-header">喜 怒 哀 樂</p>
             <h1 className="notmain-header">희 노 애 락</h1>
             <div>
-                <div>
-                    <label> I  D : </label>
-                    <input type='text' name='id'/>
-                </div>
-                
-                <input className="check" type="submit" value="ID 중복확인"/>
-                
-                <div className="join-PW">
-                    <label> 비밀번호 : </label>
-                    <input type='text' name='password'/>
+                <span className="InputIDBox-join">
+                    <label className="ID"> I  D : </label>
+                    <input className="IDbox" type='text' name='id'/>
+                </span>
+                <span>
+                    <input className="check" type="submit" value="ID 중복확인"/>
+                </span>
+                <div className="InputPWBox-join">
+                    <label className="PW-join"> PW : </label>
+                    <input className="PWbox-join" type='text' name='password'/>
                 </div>
                 <input className="joinbutton" type="submit" value="회원가입" />
             </div>

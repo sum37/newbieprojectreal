@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from 'axios';
 import InputItem from "../component/InputItem";
-
+import './write.css';
+import { Link } from 'react-router-dom';
 
 const happys = ["0", "1", "2", "3", "4", "5"];
 const angrys = ["0", "1", "2", "3", "4", "5"];
@@ -9,11 +10,6 @@ const sads = ["0", "1", "2", "3", "4", "5"];
 const joys = ["0", "1", "2", "3", "4", "5"];
 
 export default function WritePage(){
-    const diarysectionstyle={
-        width: '700px',
-        height: '350px',
-        maxlength: '20'
-    };
 
     const [input, setInput] = useState([]);
     const [saveTitle, setSaveTitle] = useState("");
@@ -24,14 +20,7 @@ export default function WritePage(){
     const [sad, setSad] = useState("0");
     const [joy, setJoy] = useState("0");
     
-    useEffect(() => {
-        // 목록 조회 요청 전송
-        axios.get(`/api/write`)
-        // 응답이 돌아오면 응답 내용으로 목록을 변경
-        .then(response => {
-          setInput(response.data);
-        });
-      }, []);
+
     
     const onSaveClick = () => {
         axios.post('/api/write', {
@@ -56,41 +45,21 @@ export default function WritePage(){
         alert('저장하시겠습니까?');
     };
 
-    const onDeleteClick = (item) => {
-        axios.delete(`api/write/${item._id}`)
-        .then(()=>axios.get(`api/write`))
-        .then(response => {
-          setInput(response.data);
-          console.log(response.data)
-        })
-        alert('삭제하시겠습니까?');
-        
-      };
-
-    const ListUp = input.map(v=>(
-        <InputItem
-            key={v._id}
-            happy={v.happy}
-            angry={v.angry}
-            sad={v.sad}
-            joy={v.joy}
-            title={v.title}
-            body={v.body}
-            onDeleteClick={()=>onDeleteClick(v)}
-        />
-    ));
 
     return (
-        <div className="Entire">
-            <p className="notmain-sub-header">喜 怒 哀 樂</p>
-            <h1 className="notmain-header">희 노 애 락</h1>
-            <div className="intro">
-                <h1>오늘 하루는 어땠나요?</h1>
-                <h2>각각의 감정을 느낀 정도를 숫자를 통해 표현해보세요.</h2>
+        <div>
+            <div className="Entire">
+                <p className="notmain-sub-header">喜 怒 哀 樂</p>
+                <h1 className="notmain-header">희 노 애 락</h1>
             </div>
-            <div className="chooseemotion">
-                <div className="happy">
-                    <label> 희 </label>
+            <div>
+                <h1 className="intro1">오늘 하루는 어땠나요?</h1>
+                <h2 className="intro2">각각의 감정을 느낀 정도를 숫자를 통해 표현해보세요.</h2>
+            </div>
+            <div className="Entire">
+                <span className="happy">
+                    <label className="chinese1"> 喜 </label>
+                    <label className="korean"> (희) </label>
                     {happys.map(f => (
                     <>
                         <input
@@ -103,10 +72,10 @@ export default function WritePage(){
                         {f}
                     </>    
                     ))}
-                </div>
-                <br />
-                <div className="angry">
-                    <label> 노 </label>
+                </span>
+                <span className="angry">
+                    <label className="chinese"> 怒 </label>
+                    <label className="korean"> (노) </label>
                     {angrys.map(f => (
                     <>
                         <input
@@ -119,10 +88,10 @@ export default function WritePage(){
                         {f}
                     </>    
                     ))}
-                </div>
-                <br />
-                <div className="sad">
-                    <label> 애 </label>
+                </span>
+                <span className="sad">
+                    <label className="chinese"> 哀 </label>
+                    <label className="korean"> (애) </label>
                     {sads.map(f => (
                     <>
                         <input
@@ -135,10 +104,10 @@ export default function WritePage(){
                         {f}
                     </>    
                     ))}
-                </div>
-                <br />
-                <div className="joy">
-                    <label> 락 </label>
+                </span>
+                <span className="joy">
+                    <label className="chinese"> 樂 </label>
+                    <label className="korean"> (락) </label>
                     {joys.map(f => (
                     <>
                         <input
@@ -151,24 +120,31 @@ export default function WritePage(){
                         {f}
                     </>    
                     ))}
-                </div>
+                </span>
         </div>
                 <br />
                 <textarea
                     className="Title"
+                    placeholder="제목을 입력하세요."
                     value={saveTitle}
                     onChange={v=>setSaveTitle(v.target.value)}
                     required/>
                 <br />
                 <textarea
                     className="Body"
+                    placeholder="내용을 입력하세요."
                     value={saveBody}
-                    style={diarysectionstyle}
                     onChange={v=>setSaveBody(v.target.value)}
                     required/>
                 <br />
-                <button onClick={()=>onSaveClick()}>저장</button>
-                {ListUp}
+                <button
+                    className="SaveButton"
+                    onClick={()=>onSaveClick()}>저장</button>
+                <div>
+                <Link to="/list">
+                    <button className="listbutton">지난 일기 보기</button>   
+                </Link>
+                </div>
         </div>
     );
 }
